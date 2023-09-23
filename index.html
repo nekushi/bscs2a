@@ -17,7 +17,11 @@
             background: #ddd;
             display: flex;
             flex-flow: column wrap;
-            gap: 20px;
+            font-size: 3rem;
+        }
+        *::selection {
+            background: transparent;
+            color: #fff;
         }
         .top-holder {
             position: fixed;
@@ -27,15 +31,19 @@
         .logo-and-friends {
             display: flex;
             justify-content: space-around;
+            width: 768px;
+            position: relative;
+            left: 50%;
+            transform: translate(-50%, 0);
         }
         .head {
-            width: 35%;
+            width: 40%;
             aspect-ratio: 1 / 1;
         }
         .ham {
             position: relative;
             width: 100%;
-            height: 25px;
+            height: 50px;
         }
         .borgar, #toggler {
             position: absolute;
@@ -55,19 +63,21 @@
         }
         .line {
             background: black;
-            border-radius: 10px;
-            width: 30px;
-            height: 5px;
+            border-radius: 20px;
+            width: 60px;
+            height: 10px;
             transition: all 300ms ease;
         }
         .nav {
-            height: 60px;
+            height: 130px;
             width: 100%;
             display: flex;
-            justify-content: space-evenly;
+            justify-content: space-between;
             align-items: flex-end;
         }
         .a {
+            font-size: 44px;
+            font-weight: 700;
             color: #000;
             visibility: hidden;
             padding: 0 20px;
@@ -75,13 +85,13 @@
             text-decoration: none;
             outline: none;
             background: linear-gradient(to right, #0057ff, #0057ff);
-            background-size: 0% 2px;
+            background-size: 0% 20px;
             background-repeat: no-repeat;
             background-position: center bottom;
             transition: background 300ms ease;
         }
         .a:hover {
-            background-size: 65% 2px;
+            background-size: 85% 5px;
         }
         .asible {
             visibility: visible;
@@ -100,31 +110,36 @@
             transform: rotate(-42deg);
             transition: transform 300ms ease;
         } 
-        #info, #officers, #students, #others {
+        #info, #announcements, #officers, #students, #others {
             padding: 5%;
             background: #4077ff;
             border-radius: 20px;
             margin-top: 20px;
         }
         .info {
-            text-indent: 40px;
+            text-indent: 80px;
             text-align: justify;
+        }
+        .flex-school {
+            display: flex;
+            justify-content: space-evenly;
+            margin-top: 40px;
         }
         .school {
             display: inline-block;
-            width: 49%;
+            width: 45%;
             aspect-ratio: 1 / 1;
-            border-radius: 15px;
+            border-radius: 30px;
         }
         .officer-container {
             display: flex;
             align-items: center;
-            justify-content: space-evenly;
+            justify-content: space-between;
             flex-flow: column nowrap;
         } 
         .off {
             border-radius: 100%;
-            width: 30%;
+            width: 280px;
             aspect-ratio: 1 / 1;
             display: block;
         }
@@ -151,15 +166,15 @@
             content: "";
             position: absolute;
             top: 0;
-            left: -10px;
-            height: 110px;
-            width: 5px;
-            background: #b9735d;
+            left: -20px;
+            height: 290px;
+            width: 15px;
+            background: #ffbfff;
             margin: 0 10px;
-            border-radius: 5px;
+            border-radius: 25px;
         }
         i {
-            font-size: 22px;
+            font-size: 55px;
         }
         .dev {
             margin-top: 15px;
@@ -170,32 +185,57 @@
         }
         .bahala-na {
             scroll-behavior: smooth;
-            margin-top: 180px;
-            height: 500px;
+            margin-top: 480px;
+            height: 1400px;
             overflow: auto;
             scroll-snap-type: y mandatory;
         }
+        .carousel {
+            width: 410px;
+            aspect-ratio: 4 / 5;
+            position: relative;
+            left: 50%;
+            transform: translate(-50%, 0);
+            display: flex;
+            overflow: auto;
+            scroll-snap-type: x mandatory;
+            flex-flow: row nowrap;
+            gap: 5px;
+        }
+        .updates-ph {
+            background: #ffbfff;
+            width: 400px;
+            aspect-ratio: 4 / 5;
+            scroll-snap-align: center;
+            border-radius: 30px;
+            flex-shrink: 0;
+            padding: 15px;
+            display: grid;
+            place-items: center;
+        }
+        
     </style>
 </head>
 <body>
     <div class="top-holder">
-    <div class="logo-and-friends">
-        <img src="ti.png" class="head logo" />
-        <img src="bscs.png" class="head course" />
-    </div>
-    <div class="ham">
-        <div class="borgar">
-        <div class="line one"></div>
-        <div class="line two"></div>
-        <div class="line three"></div>
-    </div>
-    <div class="nav">
-        <a href="#info" class="a">Info</a>
-        <a href="#officers" class="a">Officers</a>
-        <a href="#students" class="a">Students</a>
-        <a href="#others" class="a">Others</a>
-    </div>
-    </div>
+        <div class="logo-and-friends">
+            <img src="ti.png" class="head logo" />
+            <img src="bscs.png" class="head course" />
+        </div>
+        <div class="ham">
+            <div class="borgar">
+            <div class="line one"></div>
+            <div class="line two"></div>
+            <div class="line three"></div>
+        </div>
+        <div class="nav">
+            <a href="#info" class="a">Info</a>
+            <a href="#announcements" class="a">Announcements</a>
+            <a href="#officers" class="a">Officers</a>
+            <a href="#students" class="a">Students</a>
+            <a href="#others" class="a">Others</a>
+        </div>
+        </div>
     </div>
     
     <div class="bahala-na">
@@ -226,8 +266,34 @@
                 We, the sovereign Filipino people, imploring the aid of Almighty God, in order to build a just and humane society, and establish a Government that shall embody our ideals and aspirations, promote the common good, conserve and develop our patrimony, and secure to ourselves and our posterity, the blessings of independence and democracy under the rule of law and a regime of truth, justice, freedom, love, equality, and peace, do ordain and promulgate this Constitution.
             </p>
         </div>
-        <img src="one.jpeg" class="school ti1" />
-        <img src="two.jpeg" class="school ti2" /> 
+        <div class="flex-school">
+            <img src="one.jpeg" class="school ti1" />
+            <img src="two.jpeg" class="school ti2" />
+        </div> 
+    </div>
+    
+    <div id="announcements">
+        <h2>Announcements</h2>
+        <div class="carousel">
+            <div class="updates-ph">
+                Scroll me horizontally
+            </div>
+            <div class="updates-ph">
+                This is the announcement section
+            </div>
+            <div class="updates-ph">
+                Wala ako mailagay
+            </div>
+            <div class="updates-ph">
+                Di ako taga-announce
+            </div>
+            <div class="updates-ph">
+                Feature lang
+            </div>
+            <div class="updates-ph">
+                :))) 
+            </div>
+        </div>
     </div>
     
     <div id="officers">
@@ -250,31 +316,35 @@
                 <p><span>Kriztel Anne Solis</span><br />Treasurer</p>
             </div>
             <div class="off-handler">
-                <img src="https://scontent.fmnl24-1.fna.fbcdn.net/v/t39.30808-1/372845247_1592931197904298_8824517834455952245_n.jpg?stp=c0.5000x0.5000f_dst-webp_e15_p258x258_q70_tt1_u&efg=eyJ1cmxnZW4iOiJ1cmxnZW5fZnJvbV91cmwifQ&_nc_eui2=AeF9d7RnxAiaigDLCwCgzhEwyjjws-e1duzKOPCz57V27B7_7FSIlAZ1w1_lGIjoi0-6hRjcI2ClwTxCcF3FOFQ0&_nc_cid=0&_nc_ad=z-m&_nc_rml=0&_nc_ht=scontent.fmnl24-1.fna&_nc_cat=102&_nc_ohc=hIuc684Crl0AX9w2qIb&ccb=1-7&_nc_sid=5fac6f&oh=00_AfDIQXGHPkEXXh8os2sNbBeTC_C5gksj3pTabhIwMj-1Pg&oe=6512403A " class="off president"/>
+                <img src="https://scontent.fmnl24-1.fna.fbcdn.net/v/t39.30808-1/372845247_1592931197904298_8824517834455952245_n.jpg?stp=c0.5000x0.5000f_dst-webp_e15_p258x258_q70_tt1_u&efg=eyJ1cmxnZW4iOiJ1cmxnZW5fZnJvbV91cmwifQ&_nc_eui2=AeF9d7RnxAiaigDLCwCgzhEwyjjws-e1duzKOPCz57V27B7_7FSIlAZ1w1_lGIjoi0-6hRjcI2ClwTxCcF3FOFQ0&_nc_cid=0&_nc_ad=z-m&_nc_rml=0&_nc_ht=scontent.fmnl24-1.fna&_nc_cat=102&_nc_ohc=hIuc684Crl0AX9w2qIb&ccb=1-7&_nc_sid=5fac6f&oh=00_AfDIQXGHPkEXXh8os2sNbBeTC_C5gksj3pTabhIwMj-1Pg&oe=6512403A " class="off auditor"/>
                 <p><span>Tristan Bajamundi</span><br />Auditor</p>
             </div>
         </div>
     </div>
     
     <div id="students">
-        <h2>Aspiring Developers</h2>
-        <p class="info">This section should be the list of my classmates in BSCS-2A, but I'm lazy enough to put their names. PS, the height of this section is auto, so i can add as many names as I want without losing the layout. Imma put names maybe next time.</p>
-        <p class="info">Another one, I will change this section from paragraph to ul li, so that there will be a clear view to the list of names. That's all</p>
+        <h2>Students of BSCS2A</h2>
+        <p class="info">
+            
+        </p>
+        <ul>
+            
+        </ul>
     </div>
     
     <div id="others">
         <h2>About</h2>
         <div class="misc">
             <div class="address">
-                &nbsp<i class="fa-solid fa-location-dot"></i><span>&nbsp&nbspJ. Gonzales, Barangay 4, Tanauan, 4232 Batangas</span>
+                &nbsp<i class="fa-solid fa-location-dot"></i><span>&nbsp&nbsp J. Gonzales, Barangay 4, Tanauan, 4232 Batangas</span>
             </div>
             <br />
             <div class="hours">
-                <i class="fa-solid fa-clock"></i> <span>&nbspDaily • Closes 5 PM</span>
+                &nbsp<i class="fa-solid fa-clock"></i> <span>&nbspDaily • Closes 5 PM</span>
             </div>
             <br />
             <div class="telephone">
-                <i class="fa-solid fa-phone"></i> <span> (043) 778 1742</span>
+                &nbsp<i class="fa-solid fa-phone"></i> <span>&nbsp(043) 778 1742</span>
             </div>
         </div>
         
@@ -283,11 +353,9 @@
             <span class="smol">Ivan</span>
             <span class="smol">PS: not responsive. tinatamad na ako</span>
             <span class="smol">Hello kay ano hehe</span>
-            
+            <span class="smol">Secret</span>
         </div>
         </div>
-        
-
     </div>
 </body>
 
@@ -307,6 +375,77 @@
             i.classList.toggle("asible");
         })
     })
+    
+    let classmates = [
+        "Tolentino, Argie", 
+        "Manalansan, Asheen", 
+        "Almozara, Ashlene", 
+        "Ertam, Azey", 
+        "Lantin, William", 
+        "Valente, Harry", 
+        "Mitra, Trisha", 
+        "Malabanan, Steven", 
+        "Benitez, Shane", 
+        "Villagracia, Sasha", 
+        "Villamor, Raymuel", 
+        "Nopalla, Ronie",
+        "Lombo, Robert", 
+        "Pia, Vhea Jane", 
+        "Sevilla, Patrick", 
+        "Labrador, Nathaniel", 
+        "Mariano, Michael", 
+        "Yves, Mathew", 
+        "Guimba, Mark", 
+        "Parcon, Mark", 
+        "Garbin, Lyka", 
+        "Noynay, Louise", 
+        "Bueno, Lorienne", 
+        "Aguilar, Lloyd", 
+        "Landicho, Leric", 
+        "Doblado, Kenneth", 
+        "Silayan, Ken", 
+        "Malabanan, Julia", 
+        "Manaligod, Eduard", 
+        "Sta. Romana, Vincent", 
+        "Manila, Paul", 
+        "John Chester", 
+        "Artista, JJ", 
+        "Manalo, Frank", 
+        "Geron, Jerwen", 
+        "Geramos, Jerico", 
+        "De Lana, Jerby", 
+        "Alberto, Jenny", 
+        "Lozarita, Jayson", 
+        "Benitez, Jay", 
+        "Manto, James", 
+        "Rosales, J-Lord", 
+        "Avio, Karl", 
+        "Castillo, Ivan", 
+        "Macalber, Irish", 
+        "Aguilera, Ponce", 
+        "Miranda, Haydee", 
+        "Canaveral, Ever", 
+        "Gonzales, Earl", 
+        "Diras, Emil", 
+        "Vilgera, Edmer", 
+        "Centeno, Diane", 
+        "Malapote, Zyrus", 
+        "Taduran, Clyde", 
+        "Velasco, Clint", 
+        "Landicho, Chris", 
+        "Ordinario, Bea", 
+        "Pabayo, Ivan", 
+        "Zarandona, Dave", 
+    ]
+    classmates.sort();
+    
+    const ul = document.querySelector('ul');
+    
+    for (let i=0; i<classmates.length; ++i) {
+        const li = document.createElement('li');
+        li.innerText = classmates[i];
+        ul.appendChild(li);
+    }
     
 </script>
 </html>
